@@ -1,28 +1,32 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-    <record id="project_task_inherit" model="ir.ui.view">
-            <field name="name">project.task.inherit</field>
-            <field name="model">project.task</field>
+    <record id="account_analytic_line_inherit" model="ir.ui.view">
+            <field name="name">account.analytic.line.inherit</field>
+            <field name="model">account.analytic.line</field>
             <field name="type">form</field>
-            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='user_id']" position="after">
+                <xpath expr="//sheet" position="inside">
+                    <separator/>
                     <group>
+                        <group>
+                            <field name="image"/>
                             <field name="name"/>
                             <field name="footballer_age"/>
-                            <field name="description"/>
-                            <field name="image"/>
                             <field name="footballer_number"/>
-                            <field name="footballer_id"/>
-                    </group>
-                    <group>
+                            <field name="description"/>
+                        </group>
+                        <group >
                             <field name="image"/>
                             <field name="football_club"/>
                             <field name="description"/>
+<!--                            <field name="footballer_id"/>-->
                             <field name="fc_id"/>
+                        </group>
                     </group>
                 </xpath>
+
             </field>
         </record>
 
