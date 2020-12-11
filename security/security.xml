@@ -1,0 +1,17 @@
+<odoo>
+    <record id="group_footballer_acs" model="res.groups">
+        <field name="name">Footballer / Manager</field>
+    </record>
+
+<!--    <record model="ir.rule" id="see_my_own_rules">-->
+<!--        <field>See His Rules</field>-->
+<!--        <field name="model_id" ref="model_football_acs"/>-->
+<!--        <field name="domain_force">[('user_id','=','user.id')]</field>-->
+<!--        <field name="perm_create" eval="1"/>-->
+<!--        <field name="perm_create" eval="1"/>-->
+<!--        <field name="perm_create" eval="1"/>-->
+<!--        <field name="perm_create" eval="1"/>-->
+<!--    </record>-->
+
+
+</odoo>

@@ -1,0 +1,25 @@
+<odoo>
+    <data>
+        <record id="acs_form" model="ir.ui.view">
+            <field name="name">football.acs.form</field>
+            <field name="model">football.acs</field>
+            <field name="arch" type="xml">
+                <form string="Acs">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="user_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+    </data>
+
+</odoo>

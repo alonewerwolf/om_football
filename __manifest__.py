@@ -20,11 +20,22 @@
     'version': '0.13.0.0.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['project'],
+    'depends': ['project',
+            'base',
+            'resource',
+            'mail',
+            'analytic',
+            'hr_holidays',
+            'hr_timesheet',
+            'hr_attendance',
+            'hr',
+            'hr_contract',
+                ],
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/security.xml',
+        'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
     ],

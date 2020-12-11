@@ -1,28 +1,54 @@
 <odoo>
-  <data>
-    <!-- explicit list view definition -->
-    <record id="account_analytic_line_inherit" model="ir.ui.view">
+    <data>
+        <!-- explicit list view definition -->
+
+        <record id="hr_timesheet_line_search_inherit" model="ir.ui.view">
+            <field name="name">account.analytic.line.inherit</field>
+            <field name="model">account.analytic.line</field>
+            <field name="inherit_id"
+                   ref="hr_timesheet.hr_timesheet_line_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search" position="inside">
+                    <field name="footballer_name" string="Footballer Name"/>
+                    <filter string="Footballer Record" name="footballer_record"
+                            domain="[('is_footballer', '=', True)]"/>
+                    <filter name="Footballer_groupby" string="Footballer"
+                            domain="[]" context="{'group_by':'is_footballer'}"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="account_analytic_line_inherit" model="ir.ui.view">
             <field name="name">account.analytic.line.inherit</field>
             <field name="model">account.analytic.line</field>
             <field name="type">form</field>
-            <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_form"/>
+            <field name="inherit_id"
+                   ref="hr_employee_time_clock.hr_timesheet_line_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//sheet" position="inside">
+                    <!--                <xpath expr="//field[@name='name']" position="after">-->
+<!--                    <search>-->
+<!--                        <filter string="Male" name="male"-->
+<!--                                domain="[('gender', '=', 'male')]"/>-->
+<!--                        <filter string="Female" name="female"-->
+<!--                                domain="[('gender', '=', 'fe_male')]"/>-->
+<!--                    </search>-->
                     <separator/>
                     <group>
                         <group>
                             <field name="image"/>
-                            <field name="name"/>
+                            <field name="footballer_name"/>
                             <field name="footballer_age"/>
                             <field name="footballer_number"/>
                             <field name="description"/>
                         </group>
-                        <group >
+                        <group>
                             <field name="image"/>
                             <field name="football_club"/>
                             <field name="description"/>
-<!--                            <field name="footballer_id"/>-->
-                            <field name="fc_id"/>
+                            <field name="footballer_id"/>
+                            <!--                            <field name="fc_id"/>-->
                         </group>
                     </group>
                 </xpath>
@@ -30,5 +56,13 @@
             </field>
         </record>
 
-  </data>
+
+
+
+        <record id="hr_timesheet.act_hr_timesheet_line_view_kanban" model="ir.actions.act_window.view">
+            <field name="sequence">3</field>
+        </record>
+
+
+    </data>
 </odoo>
