@@ -1,0 +1,125 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* om_football
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-12 13:11+0000\n"
+"PO-Revision-Date: 2020-12-12 15:47+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Generator: Poedit 2.3\n"
+"Last-Translator: \n"
+"Language: ru\n"
+
+#. module: om_football
+#: model:ir.model.fields,field_description:om_football.field_account_analytic_line__footballer_age
+msgid "Age"
+msgstr "Возраст"
+
+#. module: om_football
+#: model:ir.model.fields,field_description:om_football.field_football_acs__create_uid
+msgid "Created by"
+msgstr "Создан"
+
+#. module: om_football
+#: model:ir.model.fields,field_description:om_football.field_football_acs__create_date
+msgid "Created on"
+msgstr "Создано на"
+
+#. module: om_football
+#: model:ir.model.fields,field_description:om_football.field_account_analytic_line__description
+msgid "Description"
+msgstr "Описание"
+
+#. module: om_football
+#: model:ir.model.fields,field_description:om_football.field_football_acs__display_name
+msgid "Display Name"
+msgstr "Отображаемое имя"
+
+#. module: om_football
+#: model:ir.model.fields,field_description:om_football.field_account_analytic_line__football_club
+msgid "FC"
+msgstr "ФК"
+
+#. module: om_football
+#: model_terms:ir.ui.view,arch_db:om_football.hr_timesheet_line_search_inherit
+msgid "Footballer"
+msgstr "Футболист"
+
+#. module: om_football
+#: model:res.groups,name:om_football.group_footballer_acs
+msgid "Footballer / Manager"
+msgstr "Футбольный / Менеджер"
+
+#. module: om_football
+#: model:ir.model.fields,field_description:om_football.field_account_analytic_line__footballer_name
+#: model_terms:ir.ui.view,arch_db:om_football.hr_timesheet_line_search_inherit
+msgid "Footballer Name"
+msgstr "Имя Футболиста"
+
+#. module: om_football
+#: model:ir.model,name:om_football.model_account_analytic_line
+#: model_terms:ir.ui.view,arch_db:om_football.hr_timesheet_line_search_inherit
+msgid "Footballer Record"
+msgstr "Запись Футболиста"
+
+#. module: om_football
+#: model:ir.model.fields,field_description:om_football.field_football_acs__id
+msgid "ID"
+msgstr "Идентификатор"
+
+#. module: om_football
+#: model:ir.model.fields,field_description:om_football.field_account_analytic_line__image
+msgid "Image"
+msgstr "Изображение"
+
+#. module: om_football
+#: model:ir.model.fields,field_description:om_football.field_account_analytic_line__is_footballer
+msgid "Is Footballer"
+msgstr "Является Футболистом"
+
+#. module: om_football
+#: model:ir.model.fields,field_description:om_football.field_football_acs____last_update
+msgid "Last Modified on"
+msgstr "Последнее изменение"
+
+#. module: om_football
+#: model:ir.model.fields,field_description:om_football.field_football_acs__write_uid
+msgid "Last Updated by"
+msgstr "Последнее обновление"
+
+#. module: om_football
+#: model:ir.model.fields,field_description:om_football.field_football_acs__write_date
+msgid "Last Updated on"
+msgstr "Последнее обновление"
+
+#. module: om_football
+#: model:ir.model.fields,field_description:om_football.field_football_acs__name
+msgid "Name"
+msgstr "Имя"
+
+#. module: om_football
+#: model:ir.model.fields,field_description:om_football.field_account_analytic_line__footballer_number
+msgid "Number"
+msgstr "Номер"
+
+#. module: om_football
+#: model:ir.model.fields,field_description:om_football.field_account_analytic_line__footballer_id
+msgid "Responsible"
+msgstr "Ответственность"
+
+#. module: om_football
+#: model:ir.model.fields,field_description:om_football.field_football_acs__user_id
+msgid "User"
+msgstr "Пользователь"
+
+#. module: om_football
+#: model:ir.model,name:om_football.model_football_acs
+msgid "football.acs"
+msgstr "football.acs"

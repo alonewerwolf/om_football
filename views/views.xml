@@ -27,28 +27,25 @@
                    ref="hr_employee_time_clock.hr_timesheet_line_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//sheet" position="inside">
-                    <!--                <xpath expr="//field[@name='name']" position="after">-->
-<!--                    <search>-->
-<!--                        <filter string="Male" name="male"-->
-<!--                                domain="[('gender', '=', 'male')]"/>-->
-<!--                        <filter string="Female" name="female"-->
-<!--                                domain="[('gender', '=', 'fe_male')]"/>-->
-<!--                    </search>-->
                     <separator/>
                     <group>
                         <group>
+                            <field name="tz"/>
                             <field name="image"/>
                             <field name="footballer_name"/>
                             <field name="footballer_age"/>
+                            <field name="age_group"/>
                             <field name="footballer_number"/>
                             <field name="description"/>
+                            <field name="footballer_id"/>
                         </group>
                         <group>
                             <field name="image"/>
                             <field name="football_club"/>
+                            <field name="created_date"/>
                             <field name="description"/>
-                            <field name="footballer_id"/>
-                            <!--                            <field name="fc_id"/>-->
+<!--                            <field name="footballer_id"/>-->
+                            <field name="fc_id"/>
                         </group>
                     </group>
                 </xpath>
