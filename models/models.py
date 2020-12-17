@@ -62,6 +62,14 @@ class Footballer(models.Model):
             ['age_group' '=', 'minor'])
         print('minor footballers', footballers_age_minor)
 
+    @api.model
+    def partners_by_country(self):
+        sql = ('SELECT footballer_name '
+               'FROM account.analytic.lines '
+               'WHERE active=true')
+        self.env.cr.execute(sql)
+        record = self.env.cr.fetchall()
+        print("Records:", record)
 
 
 
