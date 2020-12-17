@@ -38,12 +38,17 @@
                             <field name="footballer_number"/>
                             <field name="description"/>
                             <field name="footballer_id"/>
+                            <field name="active"/>
+                            <field name="attendee_ids"/>
                         </group>
                         <group>
                             <field name="image"/>
                             <field name="football_club"/>
                             <field name="created_date"/>
                             <field name="description"/>
+                            <field name="partner_id"/>
+                            <field name="order_id"/>
+<!--                            <field name="age_group"/>-->
 <!--                            <field name="footballer_id"/>-->
                             <field name="fc_id"/>
                         </group>
