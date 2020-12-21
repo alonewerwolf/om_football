@@ -11,6 +11,14 @@ class Footballer(models.Model):
     _description = 'Footballer Record'
     _inherit = 'account.analytic.line'
 
+    @api.model
+    def default_get(self, fields):
+        res = super(Footballer, self).default_get(fields)
+        if (not fields or 'partner_id' in fields) and 'partner_id' not in res:
+            if self.env.context.get('active_id'):
+                res['partner_id'] = self.env.context['active_id']
+        return res
+
     @api.depends('footballer_age')
     def _compute_age_group(self):
         for rec in self:
@@ -50,9 +58,19 @@ class Footballer(models.Model):
     def write(self, values):
         print("Values", values)
         values['active'] = True
+        sql = ("""
+                SELECT partner_id
+                FROM "account_analytic_line"
+                LIMIT 10
+                """)
+        self.env.cr.execute(sql)
+        self.env.cr.commit()
+        record = self.env.cr.fetchall()
+        print("Records:", record)
         rtn = super(Footballer, self).write(values)
         print("Return data", rtn)
         return rtn
+
 
     def action_confirm(self):
         footballers_age_major = self.env['account.analytic.line'].search(
@@ -61,17 +79,6 @@ class Footballer(models.Model):
         footballers_age_minor = self.env['account.analytic.line'].search(
             ['age_group' '=', 'minor'])
         print('minor footballers', footballers_age_minor)
-
-    @api.model
-    def partners_by_country(self):
-        sql = ('SELECT footballer_name '
-               'FROM account.analytic.lines '
-               'WHERE active=true')
-        self.env.cr.execute(sql)
-        record = self.env.cr.fetchall()
-        print("Records:", record)
-
-
 
     footballer_name = fields.Char(string='Footballer Name', required=True)
     is_footballer = fields.Boolean(string='Is Footballer')
@@ -94,6 +101,10 @@ class Football_Club(models.Model):
     # _name = 'om_football.football_club'
     _inherit = 'account.analytic.line'
 
+    @api.model
+    def create(self, data):
+        r = super(Football_Club, self).with_context(default_fc_id=data(['fc_id'])).create(data)
+        return r
 
     tz = fields.Selection(_tz_get, string='Timezone', required=True,
                           default=lambda self: self.env.user.tz or 'UTC')
