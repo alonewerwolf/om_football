@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="create_footballer_form" model="ir.ui.view">
+            <field name="name">create.footballer.wizard</field>
+            <field name="model">create.footballer</field>
+             <field name="arch" type="xml">
+                     <form string="Create Footballer">
+                            <group>
+                                <field name="footballer_id"/>
+                                <field name="attendee_ids"/>
+                            </group>
+                            <footer>
+                                <button name="create" string="Create" type="object" class="oe_highlight"/>
+                                <button string="Cancel" class="btn-secondary" special="cancel"/>
+                            </footer>
+                    </form>
+            </field>
+        </record>
+
+
+        <act_window id="create_footballer_form_wizard"
+            name="Create Footballer"
+            binding_model="account.analytic.line"
+            res_model="create.footballer"
+            view_mode="form"
+            target="new"/>
+    </data>
+</odoo>

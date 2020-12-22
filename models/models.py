@@ -55,21 +55,21 @@ class Footballer(models.Model):
         res = self.create({'name': name})
         return res
 
-    def write(self, values):
-        print("Values", values)
-        values['active'] = True
-        sql = ("""
-                SELECT partner_id
-                FROM "account_analytic_line"
-                LIMIT 10
-                """)
-        self.env.cr.execute(sql)
-        self.env.cr.commit()
-        record = self.env.cr.fetchall()
-        print("Records:", record)
-        rtn = super(Footballer, self).write(values)
-        print("Return data", rtn)
-        return rtn
+    # def write(self, values):
+    #     print("Values", values)
+    #     values['active'] = True
+    #     sql = ("""
+    #             SELECT partner_id
+    #             FROM "account_analytic_line"
+    #             LIMIT 10
+    #             """)
+    #     self.env.cr.execute(sql)
+    #     self.env.cr.commit()
+    #     record = self.env.cr.fetchall()
+    #     print("Records:", record)
+    #     rtn = super(Footballer, self).write(values)
+    #     print("Return data", rtn)
+    #     return rtn
 
 
     def action_confirm(self):
@@ -103,7 +103,8 @@ class Football_Club(models.Model):
 
     @api.model
     def create(self, data):
-        r = super(Football_Club, self).with_context(default_fc_id=data(['fc_id'])).create(data)
+        r = super(Football_Club, self).with_context(default_fc_id=data)
+        data['fc_id'].create(data)
         return r
 
     tz = fields.Selection(_tz_get, string='Timezone', required=True,
