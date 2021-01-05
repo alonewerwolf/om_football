@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="footballer_cron" forcecreate='True' model="ir.cron">
+            <field name="name">Footballer</field>
+            <field name="model_id" ref="analytic.model_account_analytic_line"/>
+            <field name="interval_number">5</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="state">code</field>
+            <field name="code">model.test_cron_job()</field>
+        </record>
+
+    </data>
+</odoo>

@@ -12,6 +12,19 @@ class Footballer(models.Model):
     _inherit = 'account.analytic.line'
 
     @api.model
+    def test_cron_job(self):
+        print("ABC")
+
+    @api.model
+    def openURL(self):
+        q = "sun"
+        return {
+            'type': 'ir.actions.act_url',
+            'url': "http://www.google.bg/?q=%s" % q,
+            'target': 'new',  # open in a new tab
+        }
+
+    @api.model
     def default_get(self, fields):
         res = super(Footballer, self).default_get(fields)
         if (not fields or 'partner_id' in fields) and 'partner_id' not in res:
@@ -55,21 +68,21 @@ class Footballer(models.Model):
         res = self.create({'name': name})
         return res
 
-    # def write(self, values):
-    #     print("Values", values)
-    #     values['active'] = True
-    #     sql = ("""
-    #             SELECT partner_id
-    #             FROM "account_analytic_line"
-    #             LIMIT 10
-    #             """)
-    #     self.env.cr.execute(sql)
-    #     self.env.cr.commit()
-    #     record = self.env.cr.fetchall()
-    #     print("Records:", record)
-    #     rtn = super(Footballer, self).write(values)
-    #     print("Return data", rtn)
-    #     return rtn
+    def write(self, values):
+        print("Values", values)
+        values['active'] = True
+        sql = ("""
+                SELECT partner_id
+                FROM "account_analytic_line"
+                LIMIT 10
+                """)
+        self.env.cr.execute(sql)
+        self.env.cr.commit()
+        record = self.env.cr.fetchall()
+        print("Records:", record)
+        rtn = super(Footballer, self).write(values)
+        print("Return data", rtn)
+        return rtn
 
 
     def action_confirm(self):
@@ -93,7 +106,7 @@ class Footballer(models.Model):
     order_id = fields.Many2one('sale.order', string='Sale Order')
     description = fields.Text(string='Description')
     image = fields.Binary(string='Image')
-    footballer_id = fields.Many2one('res.users', string="Responsible")
+    # fc_id = fields.One2many('account.analytic.line', string="Responsible")
     active = fields.Boolean(string="Active")
 
 
@@ -113,5 +126,5 @@ class Football_Club(models.Model):
     created_date = fields.Date(default=fields.Date.today)
     image = fields.Binary(string='Image')
     description = fields.Text()
-    fc_id = fields.One2many('football.acs', 'user_id')
+    # footballer_ids = fields.Many2one('account.analytic.line')
 

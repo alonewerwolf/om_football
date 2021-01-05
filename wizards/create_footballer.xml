@@ -11,7 +11,7 @@
                                 <field name="attendee_ids"/>
                             </group>
                             <footer>
-                                <button name="create" string="Create" type="object" class="oe_highlight"/>
+                                <button name="assign" string="Assign" type="object" class="oe_highlight"/>
                                 <button string="Cancel" class="btn-secondary" special="cancel"/>
                             </footer>
                     </form>

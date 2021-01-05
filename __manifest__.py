@@ -39,6 +39,7 @@
         'views/views.xml',
         'views/templates.xml',
         'wizards/create_footballer.xml',
+        'data/data.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

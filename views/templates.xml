@@ -1,4 +1,17 @@
  <odoo>
+
+     <template id="footballer_name">
+            <t t-call="website.layout">
+                <t t-set="title">Footballer</t>
+                <div class="oe_structure">
+                    <div class="container">
+                        <t t-foreach="footballers" t-as="footballer">
+                                <p><t t-esc="footballer.footballer_name"/></p>
+                        </t>
+                    </div>
+                </div>
+            </t>
+        </template>
 <!--    <data noupdate="1">-->
 <!--        &lt;!&ndash;Email template &ndash;&gt;-->
 <!--        <record id="footballer_email_template" model="mail.template">-->

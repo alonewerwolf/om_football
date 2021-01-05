@@ -1,6 +1,13 @@
 # -*- coding: utf-8 -*-
-# from odoo import http
+from odoo import http
 
+class Footballer(http.Controller):
+    @http.route('/footballer/name/', website=True, auth='public')
+    def footballer_names(self, **kw):
+        name = http.request.env['account.analytic.line']
+        return http.request.render('om_football.footballer_name', {
+            'footballer': name.search([])
+        })
 
 # class OmFootball(http.Controller):
 #     @http.route('/om_football/om_football/', auth='public')

@@ -12,4 +12,8 @@ class CreateFootballer(models.TransientModel):
     footballer_id = fields.Many2one('account.analytic.line', string='Footballer')
     attendee_ids = fields.Many2many('res.partner', string="Attendees")
 
+    def assign(self):
+        self.footballer_id.attendee_ids = self.attendee_ids
+        return {}
+
     
