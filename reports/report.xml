@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <report
+                id="report_footballer"
+                model="account.analytic.line"
+                string="Footballer"
+                name="om_football.report_footballer"
+                file="om_football.report_footballer"
+                report_type="qweb-pdf"/>
+
+        <template id="report_footballer">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h2>Footballer</h2>
+                            Name: <t t-esc="doc.footballer_name"/>
+                            Age: <t t-esc="doc.footballer_age"/>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+<!--        Graph        -->
+
+        <record id="act_footballer_report" model="ir.actions.act_window">
+            <field name="name">Footballer graph</field>
+            <field name="res_model">account.analytic.line</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Record a new activity
+            </p>
+            </field>
+        </record>
+
+        <record id="footballer_graph_view" model="ir.ui.view">
+            <field name="name">account.analytic.line.graph</field>
+            <field name="model">account.analytic.line</field>
+            <field name="arch" type="xml">
+                <graph string="Footballer Graph">
+                    <field name="footballer_age"/>
+                    <field name="footballer_name"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="footballer_graph" model="ir.actions.act_window.view">
+            <field name="sequence" eval="6"/>
+            <field name="view_mode">graph</field>
+            <field name="view_id" ref="footballer_graph_view"/>
+            <field name="act_window_id" ref="om_football.act_footballer_report"/>
+        </record>
+
+        <menuitem id="footballer_graph_menu_item"
+                  name="Footballer Graph"
+                  parent="hr_timesheet.menu_hr_time_tracking"
+                  action="om_football.act_footballer_report"/>
+
+    </data>
+</odoo>

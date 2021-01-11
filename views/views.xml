@@ -60,8 +60,6 @@
         </record>
 
 
-
-
         <record id="hr_timesheet.act_hr_timesheet_line_view_kanban" model="ir.actions.act_window.view">
             <field name="sequence">3</field>
         </record>

@@ -6,6 +6,7 @@ from odoo.addons.base.models.res_partner import _tz_get
 
 
 
+
 class Footballer(models.Model):
     # _name = 'om_football.footballer'
     _description = 'Footballer Record'
@@ -52,7 +53,6 @@ class Footballer(models.Model):
         rec = super(Footballer, self).default_get(fields_list)
         rec['active'] = True
         rec['footballer_name'] = "Ribery"
-        # rec['footballer_id'] = self.env.user
         print(rec)
         return rec
 
@@ -71,15 +71,6 @@ class Footballer(models.Model):
     def write(self, values):
         print("Values", values)
         values['active'] = True
-        sql = ("""
-                SELECT partner_id
-                FROM "account_analytic_line"
-                LIMIT 10
-                """)
-        self.env.cr.execute(sql)
-        self.env.cr.commit()
-        record = self.env.cr.fetchall()
-        print("Records:", record)
         rtn = super(Footballer, self).write(values)
         print("Return data", rtn)
         return rtn
@@ -92,6 +83,16 @@ class Footballer(models.Model):
         footballers_age_minor = self.env['account.analytic.line'].search(
             ['age_group' '=', 'minor'])
         print('minor footballers', footballers_age_minor)
+
+    def init(self):
+        query = """
+                SELECT footballer_name
+                FROM "account_analytic_line"
+                WHERE active = 'true'
+                """
+        self.env.cr.execute(query)
+        record = self.env.cr.fetchall()
+        return record
 
     footballer_name = fields.Char(string='Footballer Name', required=True)
     is_footballer = fields.Boolean(string='Is Footballer')
@@ -114,11 +115,7 @@ class Football_Club(models.Model):
     # _name = 'om_football.football_club'
     _inherit = 'account.analytic.line'
 
-    @api.model
-    def create(self, data):
-        r = super(Football_Club, self).with_context(default_fc_id=data)
-        data['fc_id'].create(data)
-        return r
+
 
     tz = fields.Selection(_tz_get, string='Timezone', required=True,
                           default=lambda self: self.env.user.tz or 'UTC')

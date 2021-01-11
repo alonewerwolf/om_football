@@ -30,6 +30,9 @@
             'hr_attendance',
             'hr',
             'hr_contract',
+            'web',
+            'website',
+            'web_tour',
                 ],
 
     # always loaded
@@ -40,6 +43,7 @@
         'views/templates.xml',
         'wizards/create_footballer.xml',
         'data/data.xml',
+        'reports/report.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
