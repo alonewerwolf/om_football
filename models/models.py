@@ -64,15 +64,12 @@ class Footballer(models.Model):
                     "A session's partner can't be an attendee")
 
     def name_create(self, name):
-        print("Name", name)
         res = self.create({'name': name})
         return res
 
     def write(self, values):
-        print("Values", values)
         values['active'] = True
         rtn = super(Footballer, self).write(values)
-        print("Return data", rtn)
         return rtn
 
 
